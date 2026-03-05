@@ -1,0 +1,7 @@
+name: operator-standard
+modules:
+  - base/runtimes
+  - base/devtools
+  - tools/browsers
+  - tools/sysinternals
+  - tools/common-cli

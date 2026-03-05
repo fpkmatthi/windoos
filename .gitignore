@@ -1,0 +1,17 @@
+# Build outputs
+dist/
+output-*/
+*.log
+
+# ISOs and installers (keep out of git)
+*.iso
+*.exe
+*.msi
+
+# IDE
+.vscode/
+.idea/
+
+# OS junk
+Thumbs.db
+.DS_Store

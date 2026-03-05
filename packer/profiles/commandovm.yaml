@@ -1,0 +1,7 @@
+name: commandovm
+modules:
+  - base/runtimes
+  - base/devtools
+  - tools/browsers
+  - tools/sysinternals
+  - optional/commandvm

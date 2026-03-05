@@ -1,0 +1,8 @@
+name: operator-standard-activated
+modules:
+  - base/runtimes
+  - base/devtools
+  - tools/browsers
+  - tools/sysinternals
+  - tools/common-cli
+  - base/activation

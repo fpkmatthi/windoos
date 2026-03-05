@@ -1,0 +1,4 @@
+name: lab-relaxed-security
+modules:
+  - base/runtimes
+  - lab/relaxed-security
