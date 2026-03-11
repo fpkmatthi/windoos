@@ -94,6 +94,7 @@
       "network": "nat",
       "network_adapter_type": "e1000e",
       "type": "vmware-iso",
+      "output_directory": "windows_10-vmware",
       "version": "{{user `vmx_version`}}",
       "vm_name": "{{user `vm_name`}}",
       "vmx_data": {
@@ -257,7 +258,7 @@
     "virtio_win_iso": "~/virtio-win.iso",
     "vm_name": "windows_10",
     "winrm_timeout": "6h",
-    "vmx_version": "19",
+    "vmx_version": "21",
     "profile": "operator-standard"
   }
 }
