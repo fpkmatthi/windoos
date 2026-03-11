@@ -91,6 +91,7 @@
       "iso_url": "{{user `iso_url`}}",
       "memory": "{{user `memory`}}",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "network": "nat",
       "network_adapter_type": "e1000e",
       "type": "vmware-iso",
       "version": "{{user `vmx_version`}}",
@@ -99,7 +100,7 @@
         "RemoteDisplay.vnc.enabled": "false",
         "RemoteDisplay.vnc.port": "5900"
       },
-      "vmx_remove_ethernet_interfaces": true,
+      "vmx_remove_ethernet_interfaces": false,
       "vnc_port_max": 5980,
       "vnc_port_min": 5900,
       "winrm_password": "vagrant",
