@@ -17,6 +17,9 @@ Start-Transcript -Path $LogPath -Append | Out-Null
 function Write-Step($msg) { Write-Host "==> $msg" }
 
 try {
+    Write-Step "Disabling TamperProtection"
+    Set-MpPreference -DisableTamperProtection $true
+
     Write-Step "Setting execution policy for this process"
     Set-ExecutionPolicy Bypass -Scope Process -Force
 
@@ -157,4 +160,5 @@ Get-ChildItem . -Recurse | Unblock-File
 
 # Start installation (CLI mode recommended for automation)
 Write-Host "Launching Commando VM installer..."
-.\install.ps1 -cli
+Set-ExecutionPolicy Unrestricted -Force
+.\install.ps1

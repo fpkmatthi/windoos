@@ -8,4 +8,7 @@ choco install vscode -y
 choco install curl -y
 choco install openssh -y
 
+choco install visualstudio2019community -y
+choco install visualstudio2022community -y
+
 Write-Log "Devtools installed."
