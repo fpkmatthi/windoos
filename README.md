@@ -41,6 +41,9 @@ Profiles live in `profiles/*.yaml`. They are simple lists of module paths:
 - `commandovm` (placeholder module)
 - `lab-relaxed-security` (guarded stub, lab-only)
 
+**NOTE1**: You first need to disable tamper protection manually (doesn't work via PS)
+**NOTE2**: Due to some weird issue in the commandovm .ps1 installer, you need to use the gui to install it manually after building with packer. Everything is under `C:\Windoos`.
+
 ## Notes on “reduced protection” builds
 This repo includes a **guarded stub** module under `modules/lab/relaxed-security`.
 Keep anything that weakens protections:

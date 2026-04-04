@@ -1,48 +1,8 @@
 {
   "builders": [
     {
-      "accelerator": "kvm",
-      "boot_wait": "6m",
-      "communicator": "winrm",
-      "cpus": "2",
-      "disk_size": "{{user `disk_size`}}",
-      "floppy_files": [
-        "{{user `autounattend`}}",
-        "./scripts/fixnetwork.ps1",
-        "./scripts/disable-screensaver.ps1",
-        "./scripts/disable-winrm.ps1",
-        "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
-      ],
-      "headless": true,
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_url": "{{user `iso_url`}}",      
-      "memory": "{{user `memory`}}",
-      "output_directory": "windows_10-qemu",
-      "qemuargs": [
-        [
-          "-drive",
-          "file=windows_10-qemu/{{ .Name }},if=virtio,cache=writeback,discard=ignore,format=qcow2,index=1"
-        ],
-        [
-          "-drive",
-          "file={{ user `iso_url` }},media=cdrom,index=2"
-        ],
-        [
-          "-drive",
-          "file={{ user `virtio_win_iso` }},media=cdrom,index=3"
-        ]
-      ],
-      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "type": "qemu",
-      "vm_name": "{{user `vm_name`}}",
-      "winrm_password": "vagrant",
-      "winrm_timeout": "{{user `winrm_timeout`}}",
-      "winrm_username": "vagrant"
-    },
-    {
-      "boot_wait": "6m",
+      "boot_command": "",
+      "boot_wait": "2m",
       "communicator": "winrm",
       "configuration_version": "8.0",
       "cpus": "2",
@@ -70,7 +30,7 @@
     },
     {
       "boot_command": "",
-      "boot_wait": "6m",
+      "boot_wait": "2m",
       "communicator": "winrm",
       "cpus": 2,
       "disk_adapter_type": "lsisas1068",
@@ -93,15 +53,15 @@
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "network": "nat",
       "network_adapter_type": "e1000e",
+      "output_directory": "windows_11-vmware",
       "type": "vmware-iso",
-      "output_directory": "windows_10-vmware",
       "version": "{{user `vmx_version`}}",
       "vm_name": "{{user `vm_name`}}",
       "vmx_data": {
         "RemoteDisplay.vnc.enabled": "false",
         "RemoteDisplay.vnc.port": "5900"
       },
-      "vmx_remove_ethernet_interfaces": false,
+      "vmx_remove_ethernet_interfaces": true,
       "vnc_port_max": 5980,
       "vnc_port_min": 5900,
       "winrm_password": "vagrant",
@@ -110,7 +70,7 @@
     },
     {
       "boot_command": "",
-      "boot_wait": "6m",
+      "boot_wait": "2m",
       "communicator": "winrm",
       "cpus": 2,
       "disk_size": "{{user `disk_size`}}",
@@ -138,7 +98,7 @@
     },
     {
       "boot_command": "",
-      "boot_wait": "6m",
+      "boot_wait": "2m",
       "communicator": "winrm",
       "cpus": 2,
       "disk_size": "{{user `disk_size`}}",
@@ -251,17 +211,17 @@
     }
   ],
   "variables": {
-    "autounattend": "./answer_files/10/Autounattend.xml",
+    "autounattend": "./answer_files/11/Autounattend.xml",
     "disk_size": "102400",
     "disk_type_id": "1",
     "memory": "4096",
     "headless": "false",
-    "iso_checksum": "sha256:ef7312733a9f5d7d51cfa04ac497671995674ca5e1058d5164d6028f0938d668",
-    "iso_url": "https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66750/19045.2006.220908-0225.22h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
+    "iso_checksum": "sha256:ebbc79106715f44f5020f77bd90721b17c5a877cbc15a3535b99155493a1bb3f",
+    "iso_url": "https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66751/22621.525.220925-0207.ni_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
     "restart_timeout": "5m",
     "vhv_enable": "false",
     "virtio_win_iso": "~/virtio-win.iso",
-    "vm_name": "windows_10",
+    "vm_name": "windows_11",
     "winrm_timeout": "6h",
     "vmx_version": "21",
     "profile": "operator-standard"
