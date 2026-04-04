@@ -20,16 +20,16 @@ This repo supports **Windows 10 Pro** and **Windows 11 Pro** builds as *user-rea
 
 ## Quickstart
 1) Edit these files:
-- `packer/windows_10.json` (WinRM creds, output dir, VM sizing, ISO URL + checksum)
+- `packer/windows_10.json` (WinRM creds, output dir, VM sizing, ISO URL + checksum, profile)
 
 2) Build Windows 10 Pro (VMware):
 ```powershell
-.\build.sh -p vmware -t windows_10 -p commandovm
+.\build.sh -p vmware -t windows_10
 ```
 
 3) Build Windows 11 Pro (VirtualBox):
 ```powershell
-.\build.sh -p virtualbox -t windows_11 -p operator-standard
+.\build.sh -p virtualbox -t windows_11
 ```
 
 Artifacts go to `dist/` by default.
